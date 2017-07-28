@@ -1,0 +1,8 @@
+{
+  "caseTemperature": 33,
+  "powerConsumption": 145,
+  "ambientLux": 10,
+  "targetPowerState": "ON",
+  "targetControlPolicy": "AUTO_TIMER",
+  "targetAutoTimerParams": { "targetOnTime": 343434, "targetOffTime": 6767676}
+}
