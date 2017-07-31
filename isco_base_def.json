@@ -118,16 +118,48 @@
         "ontologyRef"
       ]
     },
-    "resourceDataSchema": {
+    "resourceDataSchema_lev1": {
       "type": "object",
-      "patternProperties": {
-        "[a-zA-Z0-9]+$": {
-          "$ref": "#/definitions/valueSchema"
+      "properties": {
+        "type": {
+          "type": [
+            "string"
+          ]
+        },
+        "enum": {
+          "type": [
+            "array"
+          ]
+        },
+        "description": {
+          "type": "string"
+        },
+        "units": {
+          "type": "string"
+        },
+        "readOnly": {
+          "enum": ["true", "false"]
+        },
+        "accessModifier": {
+          "enum": [ "public", "private", "protected" ]
         }
       },
-      "additionalProperties": false
+      "allOf": [
+         {
+           "anyOf": [
+           { "required": [ "type" ]},
+           { "required": [ "enum" ]}
+           ]
+         },
+         {
+           "anyOf": [
+           { "required": [ "properties" ]},
+           { "required": [ "units" ]}
+           ]
+         }
+      ]
     },
-    "resourceDataSchema1": {
+    "resourceDataSchema": {
       "type": "object",
       "properties": {
         "type": {
@@ -144,7 +176,7 @@
           "type": "object",
           "patternProperties": {
             "[a-zA-Z0-9]+$": {
-              "$ref": "#/definitions/resourceDataSchema1"
+              "$ref": "#/definitions/resourceDataSchema_lev1"
             }
           }
         },
@@ -161,13 +193,19 @@
           "enum": [ "public", "private", "protected" ]
         }
       },
-      "anyOf": [
-      { "required": [ "type" ]},
-      { "required": [ "enum" ]}
-      ],
-      "anyOf": [
-      { "required": [ "properties" ]},
-      { "required": [ "units" ]}
+      "allOf": [
+         {
+           "anyOf": [
+           { "required": [ "type" ]},
+           { "required": [ "enum" ]}
+           ]
+         },
+         {
+           "anyOf": [
+           { "required": [ "properties" ]},
+           { "required": [ "units" ]}
+           ]
+         }
       ]
     },
     "resourceParamsSchema": {
