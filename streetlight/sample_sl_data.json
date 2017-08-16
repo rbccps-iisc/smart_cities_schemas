@@ -1,8 +1,12 @@
 {
+  "dataSamplingInstant":"2017-06-06T16:05:45+05:30",
   "caseTemperature": 33,
   "powerConsumption": 145,
+  "luxOutput": 15,
   "ambientLux": 10,
   "targetPowerState": "ON",
+  "targetBrightnessLevel": 70,
   "targetControlPolicy": "AUTO_TIMER",
-  "targetAutoTimerParams": { "targetOnTime": 343434, "targetOffTime": 6767676}
+  "targetAutoTimerParams": { "targetOnTime": 343434, "targetOffTime": 606400},
+  "targetAutoLuxParams": { "targetOnLux": 5, "targetOffLux": 10}
 }

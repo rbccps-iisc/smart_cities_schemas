@@ -137,8 +137,8 @@
         "units": {
           "type": "string"
         },
-        "readOnly": {
-          "enum": ["true", "false"]
+        "readWrite": {
+          "enum": ["read", "read-write"]
         },
         "accessModifier": {
           "enum": [ "public", "private", "protected" ]
@@ -186,8 +186,8 @@
         "units": {
           "type": "string"
         },
-        "readOnly": {
-          "enum": ["true", "false"]
+        "readWrite": {
+          "enum": ["read", "read-write"]
         },
         "accessModifier": {
           "enum": [ "public", "private", "protected" ]
@@ -206,7 +206,80 @@
            { "required": [ "units" ]}
            ]
          }
+      ],
+      "required": [
+          "readWrite"
       ]
+    },
+    "protoFileSchemaField": {
+      "describes": "Will be used to generate a proto file. Currently proto-json fields mapping is the one described in the scripts defined with conversion scripts used by PIQI language (piqi.org)",
+      "type": "object",
+      "properties": {
+         "name": {
+           "type": "string",
+           "describes": "Name of the parameter in the message"  
+         },
+         "type": {
+           "type": "string",
+           "describes": "Type of the parameter in the message. For example, int32, int16, protobuf-int32 etc. OR any self defined type"  
+         },
+         "mode": {
+           "enum": ["required", "optional", "repeated"],
+           "describes": "required/optional/repeated"  
+         },
+         "code": {
+           "describes": "Tag for proto-buff",
+           "type": "number"
+         }
+      },
+      "required": [
+         "name",
+         "type",
+         "mode",
+         "code"
+      ]
+    },
+    "protoFileSchema": {
+      "type": "object",
+      "properties": {
+        "module": {
+           "type": "string"
+        },
+        "typedef": {
+          "type": "array",
+          "items":{
+            "type": "object",
+            "properties": {
+               "record": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "field": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "$ref": "#/definitions/protoFileSchemaField"
+                      }
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "field"
+                  ]
+               }
+            },
+            "required": [
+              "record"
+            ] 
+          }
+        }
+      },
+      "required": [
+        "typedef"
+      ],
+      "additionalProperties": false
     },
     "resourceParamsSchema": {
       "type": "object",

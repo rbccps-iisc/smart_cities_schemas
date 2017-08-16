@@ -65,6 +65,60 @@
         }
       },
       "additionalProperties": false
+    },
+    "uplink_data_serialization": {
+      "describes": "Data serialization format used to send data from the device",
+      "type": "object",
+      "properties":{
+          "format": {
+            "type": "string"
+          },
+          "schema_ref": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "link"
+            ]
+          }
+      },
+      "required": [
+          "format",
+          "schema_ref"
+      ]
+    },
+    "downlink_data_serialization": {
+      "describes": "Data serialization format used to send data to the device",
+      "type": "object",
+      "properties":{
+          "format": {
+            "type": "string"
+          },
+          "schema_ref": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "link"
+            ]
+          }
+      },
+      "required": [
+          "format",
+          "schema_ref"
+      ]
     }
   },
   "additionalProperties": {
