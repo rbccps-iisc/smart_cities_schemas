@@ -34,7 +34,7 @@
           "type": "object",
           "properties": {
             "caseTemperature": {
-              "$ref": "isco_base_def.json#/definitions/resourceDataSchema1"
+              "$ref": "isco_base_def.json#/definitions/resourceDataSchema"
             }
           },
           "required": [
