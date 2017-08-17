@@ -42,6 +42,8 @@
     }
   },
   "required":[
-    "geoLocation"
+    "geoLocation",
+    "loadtype",
+    "connection_topology"
   ]
 }
