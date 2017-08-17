@@ -2,8 +2,8 @@
   "type": "object",
   "properties": {
       "dataSamplingInstant": {
-        "type": "string",
-        "description": "Sampling Time in UTC format",
+        "type": "number",
+        "description": "Sampling Time in EPOCH format",
         "units": "seconds",
         "permissions": "read",
         "accessModifier": "public"
