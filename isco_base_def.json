@@ -137,7 +137,7 @@
         "units": {
           "type": "string"
         },
-        "readWrite": {
+        "permissions": {
           "enum": ["read", "read-write"]
         },
         "accessModifier": {
@@ -186,7 +186,7 @@
         "units": {
           "type": "string"
         },
-        "readWrite": {
+        "permissions": {
           "enum": ["read", "read-write"]
         },
         "accessModifier": {
@@ -208,7 +208,7 @@
          }
       ],
       "required": [
-          "readWrite"
+          "permissions"
       ]
     },
     "protoFileSchemaField": {

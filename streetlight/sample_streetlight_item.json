@@ -45,35 +45,35 @@
           "type": "string",
           "description": "Sampling Time in UTC format",
           "units": "seconds",
-          "readWrite": "read",
+          "permissions": "read",
           "accessModifier": "public"
         },
         "caseTemperature": {
           "type": "number",
           "description": "Temperature of the device casing",
           "units": "degreeCelsius",
-          "readWrite": "read",
+          "permissions": "read",
           "accessModifier": "public"
         },
         "powerConsumption": {
           "type": "number",
           "description": "Power consumption of the device",
           "units": "watts",
-          "readWrite": "read",
+          "permissions": "read",
           "accessModifier": "public"
         },
         "luxOutput": {
           "type": "number",
           "description": "lux output of LED measured at LED",
           "units": "lux",
-          "readWrite": "read",
+          "permissions": "read",
           "accessModifier": "public"
         },
         "ambientLux": {
           "type": "number",
           "description": "lux value of ambient",
           "units": "lux",
-          "readWrite": "read",
+          "permissions": "read",
           "accessModifier": "public"
         },
         "targetPowerState": {
@@ -84,14 +84,14 @@
           ],
           "units": "dimensionless",
           "description": "If set to ON, turns ON the device. If OFF turns OFF the device. Writeable parameter. Writeable only allowed for authorized apps",
-          "readWrite": "read-write",
+          "permissions": "read-write",
           "accessModifier": "protected"
         },
         "targetBrightnessLevel": {
           "type": "number",
           "description": "Number between 0 to 100 to indicate the percentage brightness level. Writeable only allowed for authorized apps",
           "units": "percent",
-          "readWrite": "read-write",
+          "permissions": "read-write",
           "accessModifier": "protected"
         },
         "targetControlPolicy": {
@@ -101,13 +101,13 @@
             "MANUAL"
           ],
           "units": "dimensionless",
-          "readWrite": "read-write",
+          "permissions": "read-write",
           "description": "Indicates which of the behaviours the device should implement. AUTO_TIMER is timer based, AUTO_LUX uses ambient light and MANUAL is controlled by app. Writeable only allowed for authorized apps",
           "accessModifier": "protected"
         },
         "targetAutoTimerParams": {
           "type": "object",
-          "readWrite": "read-write",
+          "permissions": "read-write",
           "properties": {
             "targetOnTime": {
               "type": "number",
@@ -125,7 +125,7 @@
         },
         "targetAutoLuxParams": {
           "type": "object",
-          "readWrite": "read-write",
+          "permissions": "read-write",
           "properties": {
             "targetOnLux": {
               "type": "number",
@@ -144,14 +144,14 @@
     },
     "additionalProperties": false
   },
-  "uplink_data_serialization":{
+  "serialization_from_device":{
     "format": "protocol-buffers",
     "schema_ref": {
        "type": "proto 2",
        "link": "http://git.abc.xyz/project1/uplink-file.proto"
     }
   },
-  "downlink_data_serialization":{
+  "serialization_to_device":{
     "format": "protocol-buffers",
     "schema_ref": {
        "type": "proto 2",
