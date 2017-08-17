@@ -99,6 +99,32 @@
           "type": "string",
           "format": "uri",
           "describes": "Maps the resource on a map (see https://mapid.mapunity.in/)"
+        },
+        "indoor_location": {
+          "type": "object",
+          "describes": "Indoor location of the resource",
+          "properties": {
+             "building_name": {
+               "type": "string",
+               "describes": "Name of the building where the resource is located"
+             },
+             "address": {
+               "type": "string",
+               "describes": "Address of the building where the resource is located"
+             },
+             "floor": {
+               "type": "string",
+               "describes": "Floor number where the resource is located"
+             },
+             "room": {
+               "type": "string",
+               "describes": "Room Number/Description where the resource is located"
+             },
+             "misc_location_info": {
+               "type": "string",
+               "describes": "Other miscellaneous information about the indoor location of the resource (e.g., below the staircase or on the wall next to the door etc."
+             }
+          }
         }
       }
     },
