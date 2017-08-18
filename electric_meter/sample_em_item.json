@@ -1,5 +1,5 @@
 {
-  "refCatalogueSchema": "generic_iotdevice_schema.json",
+  "refCatalogueSchema": "electric_meter_schema.json",
   "id": "rbc_em_1",
   "resourceSchemaVersion": "1.0.0",
   "resourceType": "energymeter",
