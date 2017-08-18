@@ -43,10 +43,26 @@
     "site_topology": "http://rbccps.org/resourceInfo/building/topology"
   },
   "accessMechanism": {
-    "requestAccessSite": "http://rbccps.org/middleware/requestAccess",
-    "accessEndPoint": "https://rbccps.org/middleware/api/{api_ver}/rbc_em_1",
-    "subscriptionEndPoint": "mqtt://rbccps.org/subscription/rbc_em_1",
-    "additionalResourceInfo": "http://rbccps.org/resourceInfo/rbc_em_1"
+    "requestAccessSite": {
+      "describes": "URI for getting permissions to access the device", 
+      "value": "http://rbccps.org/middleware/requestAccess"
+    }, 
+    "accessEndPoint": {
+       "value": "https://rbccps.org/middleware/api/{api_ver}/db",
+       "describes": "End point to access the archived values (database access endpoint)"
+    },
+    "subscriptionEndPoint": {
+       "value": "mqtt://rbccps.org/subscription/live",
+       "describes": "End point for subscribing to LIVE data"
+    },
+    "additionalResourceInfo": {
+       "value": "http://rbccps.org/resourceInfo/{id}",
+       "describes": "Additional information about the device"
+    },
+    "resourceAPIInfo": {
+       "value": "http://rbccps.org/resourceInfo/api",
+       "describes": "Information on how to use various APIs (access, update, cat) associated with this resource"
+    }
   },
   "data_schema": {
     "type": "object",

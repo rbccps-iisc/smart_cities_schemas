@@ -47,30 +47,79 @@
       "type": "object",
       "properties": {
         "requestAccessSite": {
-          "type": "string",
-          "format": "uri",
-          "describes": "URI to get permissions (e.g. tokens) to access to the resource"
+          "type": "object",
+          "properties": {
+             "value": {
+               "type": "string",
+               "format": "uri"
+             },
+             "describes": {
+               "type": "string"
+             }
+          }
         },
         "accessEndPoint": {
-          "type": "string",
-          "format": "uri",
-          "describes": "URI to access the resource"
+          "type": "object",
+          "properties": {
+             "value": {
+               "type": "string",
+               "format": "uri"
+             },
+             "describes": {
+               "type": "string"
+             }
+          }
+        },
+        "updateEndPoint": {
+          "type": "object",
+          "properties": {
+             "value": {
+               "type": "string",
+               "format": "uri"
+             },
+             "describes": {
+               "type": "string"
+             }
+          }
+        },
+        "resourceAPIInfo": {
+          "type": "object",
+          "properties": {
+             "value": {
+               "type": "string",
+               "format": "uri"
+             },
+             "describes": {
+               "type": "string"
+             }
+          }
         },
         "additionalResourceInfo": {
-          "type": "string",
-          "format": "uri",
-          "describes": "Link to get additional information for this resource"
+          "type": "object",
+          "properties": {
+             "value": {
+               "type": "string",
+               "format": "uri"
+             },
+             "describes": {
+               "type": "string"
+             }
+          }
         },
         "subscriptionEndPoint": {
-          "type": "string",
-          "format": "uri",
-          "describes": "URI to subscribe to the resource changes"
+          "type": "object",
+          "properties": {
+             "value": {
+               "type": "string",
+               "format": "uri"
+             },
+             "describes": {
+               "type": "string"
+             }
+          }
         }
       },
-      "required": [
-        "accessEndPoint",
-        "subscriptionEndPoint"
-      ]
+      "additionalProperties": false
     },
     "ownerSchema": {
       "type": "object",
