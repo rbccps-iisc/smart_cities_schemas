@@ -10,7 +10,6 @@
     },
     "refCatalogueSchema": {
       "type": "string",
-      "format": "uri",
       "describes": "Reference to the catalogue schema to which this entry adheres"
     },
     "UI": {
