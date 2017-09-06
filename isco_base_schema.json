@@ -12,14 +12,9 @@
       "type": "string",
       "describes": "Reference to the catalogue schema to which this entry adheres"
     },
-    "UI": {
-      "type": "object",
-      "describes": "Globally unique identifier for the resource. E.g IMEI numbers, UUID, MacID etc.",
-      "$ref": "isco_base_def.json#/definitions/valueSchema"
-    },
-    "resourceSchemaVersion": {
+    "refCatalogueSchemaRelease": {
       "type": "string",
-      "describes": "Current version of the resource schema as per Semantic Versioning major:minor:patch"
+      "describes": "Release number of the reference catalogue schema schema as per the Semantic Versioning major:minor:patch"
     },
     "owner": {
       "$ref": "isco_base_def.json#/definitions/ownerSchema"
@@ -126,10 +121,11 @@
   "required": [
     "id",
     "refCatalogueSchema",
+    "refCatalogueSchemaRelease",
     "owner",
     "provider",
     "accessMechanism",
-    "resourceType",
+    "data_schema",
     "tags"
   ]
 }
