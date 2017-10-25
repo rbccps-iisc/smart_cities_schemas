@@ -159,14 +159,16 @@
     "format": "protocol-buffers",
     "schema_ref": {
        "type": "proto 2",
-       "link": "https://github.com/rbccps-iisc/smart_cities_applications_streetlight/blob/develop/proto_stm/txmsg/sensed.proto"
+       "mainMessageName": "sensor_values",
+       "link": "https://raw.githubusercontent.com/rbccps-iisc/applications-streetlight/master/proto_stm/txmsg/sensed.proto"
     }
   },
   "serialization_to_device":{
     "format": "protocol-buffers",
     "schema_ref": {
        "type": "proto 2",
-       "link": "https://github.com/rbccps-iisc/smart_cities_applications_streetlight/blob/develop/proto_stm/rxmsg/actuated.proto"
+       "mainMessageName": "targetConfigurations",
+       "link": "https://raw.githubusercontent.com/rbccps-iisc/applications-streetlight/master/proto_stm/rxmsg/actuated.proto"
     }
   }
 }
