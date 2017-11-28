@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "describes": "Schema of IP-camera catalog entries",
+  "version": "1.0.0",
+  "type": "object",
+  "allOf": [
+   {"$ref": "isco_base_schema.json#"}
+  ],
+  "properties": {
+    "latitude": {
+      "$ref": "isco_base_def.json#/definitions/latlongschema",
+      "describes": "latitude"
+    },
+    "longitude": {
+      "$ref": "isco_base_def.json#/definitions/latlongschema",
+      "describes": "latitude"
+    },
+    "altitude": {
+      "$ref": "isco_base_def.json#/definitions/latlongschema",
+      "describes": "altitude"
+    },
+    "geoLocation": {
+      "$ref": "isco_base_def.json#/definitions/geoLocationSchema"
+    },
+    "ipcameraInfo": {
+      "type": "object",
+      "describes": "Information about the deployed IP camera. Lot of the information about features is available in camera data sheet that can be pulled out using mfdId",
+      "properties": {
+        "modelpartNum": {
+          "type": "string",
+          "describes": "Model Number and Manufacturer of the IP camera."
+        },
+        "hasAudioCapability": {
+          "type": "boolean",
+          "describes": "Describes if the ip-camera has audio capability. [False by Default]"
+        },
+        "hasONVIFCapability": {
+          "type": "boolean",
+          "describes": "Describes if the ip-camera is ONVIF capable. [True by Default]"
+        },
+        "hasWirelessCapability": {
+          "type": "boolean",
+          "describes": "Describes if the ip-camera is wireless capable"
+        },
+        "cameraType": {
+          "type": "string",
+          "enum": ["fixed", "ptz", "360"],
+          "describes": "Describes the camera type"
+        },
+        "cameraHousing": {
+          "type": "string",
+          "enum": ["bullet", "dome", "indoor", "outdoor", "covert"],
+          "describes": "Describes the camera housing"
+        },
+        "dataSheetURL": {
+          "type": "string",
+          "describes": "Link for the URL for getting the data sheet for the camera"
+        }
+      },
+      "required": [
+        "modelpartNum"
+      ]
+    }
+  },
+  "subscriptionProtocols": {
+     "type": "array",
+     "describes": "The streaming protocols supported for the live stream for this IP camera. (NOTE: Video server makes the camera stream available in this format. This may be different from the camera streams provided by the IP Camera)",
+     "items" : {
+         "type" : "string",
+         "enum" : ["rtmp", "rtsp", "mpeg-dash", "hls", "hds"]
+     } 
+  },
+  "storageFileFormats": {
+     "type": "array",
+     "describes": "Various file formats in which archives for this camera stream are available",
+     "items" : {
+         "type" : "string",
+         "enum" : ["mp4", "mp3", "flv", "avi"]
+     } 
+  },
+  "required":[
+    "geoLocation",
+    "ipcameraInfo",
+    "subscriptionProtocols"
+  ]
+}
