@@ -1,0 +1,106 @@
+{
+  "refCatalogueSchema": "generic_iotdevice_schema.json",
+  "id": "b8:27:eb:7f:05:a9",
+  "resourceType": "IoT Gateway CPU monitor",
+  "tags": [
+    "performance metrics",
+    "cpu usage",
+    "memory usage",
+    "message speed",
+    "server connectivity",
+    "virtual sensor"
+  ],
+  "refCatalogueSchemaRelease":"0.1.0",
+  "latitude": {
+    "value": 13.0143335,
+    "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  },
+  "longitude": {
+    "value": 77.5678424,
+    "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  },
+  "geoLocation" : {
+    "address" : "RBCCPS, Enterpreneurship Center, Bangalore, 560016",
+    "location" : "Terrace"
+  },
+  "poleId" : "pole2",
+  "owner": {
+    "name": "IISC",
+    "website": "http://www.iisc.ac.in"
+  },
+  "provider": {
+    "name": "Robert Bosch Centre for Cyber Physical Systems, IISc",
+    "website": "http://rbccps.org"
+  },
+  "accessMechanism": {
+    "requestAccessSite": {
+      "describes": "URI for getting permissions to access the device", 
+      "value": "http://rbccps.org/middleware/requestAccess"
+    }, 
+    "accessEndPoint": {
+       "value": "https://smartcity.rbccps.org/api/0.1.0/historicData",
+       "describes": "End point to access the archived values (database access endpoint)"
+    },
+    
+    "subscriptionEndPoint": {
+       "value": "https://smartcity.rbccps.org/api/0.1.0/subscribe",
+       "describes": "End point for subscribing to LIVE data"
+    },
+    "resourceAPIInfo": {
+       "value": "https://rbccps-iisc.github.io",
+       "describes": "Information on how to use various APIs (access, update, cat) associated with this resource"
+    }
+  },
+  "data_schema": {
+    "type": "object",
+    "properties": {
+        "cpuUsage" : {
+          "type" : "array",
+          "description" : "CPU usage per core for 4 cores" ,
+          "units" : "percentage",
+          "permissions" : "read",
+          "accessModifier": "public" 
+         },
+        "memoryUsage" : {
+          "type" : "number",
+          "description" : "System memory usage",
+          "units" : "percentage",
+          "permissions" : "read",
+          "accessModifier": "public"
+         },
+        "serverConnectivity" : {
+          "type" : "array",
+          "description" : "Connectivity to the server",
+          "units" : "milliseconds",
+          "permissions" : "read",
+          "accessModifier": "public" 
+        },
+        "messageSpeed" : {
+          "type" : "number",
+          "description" : "Number of messages running through the flow",
+          "units" : "messages-per-hour",
+          "permissions" : "read",
+          "accessModifier": "public"
+         },
+	"timeStamp" : {
+          "type" : "string",
+          "description" : "Time Stamp",
+          "units" : "time",
+          "permissions" : "read",
+          "accessModifier": "public"
+         }
+    },
+    "additionalProperties": false
+  },
+  "serialization_from_device":{
+    "format": "json",
+    "schema_ref": {
+       "type": "json-schema draft 4",
+       "link": "#/data_schema"
+    }
+  }
+}
+
+
+
+
