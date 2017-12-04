@@ -26,7 +26,8 @@
     "website": "http://rbccps.org"
   },
   "geoLocation": {
-    "address": "RBCCPS car parking lot enterance"
+    "address": "RBCCPS car parking lot enterance",
+    "poleId": "pole3"
   },
   "ipcameraInfo": {
       "modelpartNum": "VIVOTEK IB9381-HT",
