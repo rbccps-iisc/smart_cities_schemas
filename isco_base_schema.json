@@ -116,7 +116,7 @@
     }
   },
   "additionalProperties": {
-    "type": ["string", "object"]
+    "type": ["string", "object", "boolean", "array"]
   },
   "required": [
     "id",
