@@ -6,7 +6,7 @@
     "e toilet",
     "Sanitation"
   ],
-  "refCatalogueSchemaRelease":"0.2.0",
+  "refCatalogueSchemaRelease":"0.2.1",
   "latitude": {
     "value": 13.0143335,
     "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"

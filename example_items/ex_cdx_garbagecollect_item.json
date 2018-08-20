@@ -1,0 +1,93 @@
+{
+  "refCatalogueSchema": "cdx_base_staticThing.json",
+  "id": "garbageCollectXYZ",
+  "tags": [
+    "garbage collection",
+    "waste segregation",
+    "solid waste",
+    "sanitation"
+  ],
+  "refCatalogueSchemaRelease":"0.2.1",
+  "latitude": {
+    "value": 13.0143335,
+    "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  },
+  "longitude": {
+    "value": 77.5678424,
+    "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  },
+  "owner": {
+    "name": "ELCITA",
+    "website": "http://www.iisc.ac.in"
+  },
+  "geoLocation": {
+      "address": "Altimetrik India Private Limited, Phase-1,Electronic city - Phase 1",
+      "city": "Bangalore"
+  },
+  "message_schemas": {
+     "type": "object",
+     "properties": {
+         "observation_msg": {
+             "schema": "http://json-schema.org/draft-07/schema#",
+             "type": "object",
+             "describes": "Observation messages from the streetlight",
+             "direction": "fromThing",
+             "priority": "low",
+             "tags": ["garbage collection","solid waste", "sanitation"],
+             "sharing": "public",
+             "required": ["customerId", "dryWaste", "wetWaste", "rejectWaste", "vehicleName", "collectionDateTime"],
+             "properties": {
+                  "customerId": {
+                    "type": "string",
+                    "description": "Id for the garbage monitoring unit"
+                  },
+                  "customerName": {
+                    "type": "string",
+                    "description": "Name for the garbage monitoring unit"
+                  },
+                  "address": {
+                    "type": "string",
+                    "description": "Address for the garbage monitoring unit"
+                  },
+                  "latitude": {
+                    "type": "string",
+                    "description": "Latitude value for the garbage monitor unit (ontology reference: http://www.w3.org/2003/01/geo/wgs84_pos#)"
+                  },
+                  "longitude": {
+                    "type": "string",
+                    "description": "Longitude value for the garbage monitor unit (ontology reference: http://www.w3.org/2003/01/geo/wgs84_pos#)"
+                  },
+                  "dryWaste": {
+                    "type": "number",
+                    "description": "Weight of collected dry waste",
+                    "units": "kilograms"
+                  },
+                  "wetWaste": {
+                    "type": "number",
+                    "description": "Weight of collected dry waste",
+                    "units": "kilograms"
+                  },
+                  "rejectWaste": {
+                    "type": "number",
+                    "description": "Weight of collected dry waste",
+                    "units": "kilograms"
+                  },
+                  "measurementUnit": {
+                    "type": "string",
+                    "description": "Measurement unit for the collection numbers"
+                  },
+                  "vehicleName": {
+                    "type": "string",
+                    "description": "Name of the vehicle collecting the garbage from this unit"
+                  },
+                  "collectionDateTime": {
+                    "type": "string",
+                    "description": "Collection time-stamp, Format: Date(YYYY-MM-DD) Time(HH:MM:SS.MS)"
+                  }
+            },
+            "additionalProperties": false
+           }
+      },
+      "additionalProperties": false
+  }
+}
