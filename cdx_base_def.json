@@ -117,10 +117,22 @@
           "type": "string",
           "describes": "Street address of the resource"
         },
+        "city": {
+          "type": "string",
+          "describes": "City where the resource is located"
+        },
+        "district": {
+          "type": "string",
+          "describes": "District where the resource is located"
+        },
+        "state": {
+          "type": "string",
+          "describes": "State where the resource is located"
+        },
         "mapid": {
           "type": "string",
           "format": "uri",
-          "describes": "Maps the resource on a map (see https://mapid.mapunity.in/)"
+          "describes": "Maps the resource on a map"
         },
         "indoor_location": {
           "type": "object",
