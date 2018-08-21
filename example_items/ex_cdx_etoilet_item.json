@@ -30,7 +30,7 @@
          "observation_msg": {
              "schema": "http://json-schema.org/draft-07/schema#",
              "type": "object",
-             "describes": "Observation messages from the streetlight",
+             "describes": "Observation messages from the etoilet data unit",
              "direction": "fromThing",
              "priority": "low",
              "tags": ["e toilet","sanitation"],

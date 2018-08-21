@@ -1,0 +1,124 @@
+{
+    "refCatalogueSchema": "cdx_base_staticThing.json",
+    "id": "climoXYZ",
+    "tags": [
+        "air quality",
+        "pollution",
+        "aqm",
+        "aqi"
+    ],
+    "refCatalogueSchemaRelease":"0.2.1",
+    "latitude": {
+        "value": 13.0143335,
+        "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+    },
+    "longitude": {
+        "value": 77.5678424,
+        "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+    },
+    "owner": {
+        "name": "ELCITA",
+        "website": "http://www.iisc.ac.in"
+    },
+    "geoLocation": {
+        "address": "Robert Bosch Center for Cyberphysical Systems, IISc",
+        "city": "Bangalore"
+    },
+    "message_schemas": {
+        "type": "object",
+        "properties": {
+            "observation_msg": {
+                "schema": "http://json-schema.org/draft-07/schema#",
+                "type": "object",
+                "describes": "Observation messages from climo air quality monitor ",
+                "direction": "fromThing",
+                "priority": "low",
+                "tags": ["air", "pollution", "SO2", "CO2", "CO", "NO", "NO2", "PM2.5", "PM10", "Humidity", "Temperature", "Ozone", "O", "Noise", "Light", "UV"],
+                "sharing": "public",
+                "required": ["climoID", "timestamp"],
+                "properties": {
+                    "climoID": {
+                        "type": "string",
+                        "description": "Id for the aqm unit"
+                    },
+                    "timestamp": {
+                        "type": "number",
+                        "description": "EPOCH time (milli-seconds) for the inbound message"
+                    },
+                    "SENS_LIGHT": {
+                        "type": "number",
+                        "description": "Up to 188000",
+                        "units" : "Lux"
+                    },
+                    "SENS_AIR_PRESSURE": {
+                        "type": "number",
+                        "description": "No resolutions given",
+                        "units" : "bar"
+                    },
+                    "SENS_TEMPERATURE": {
+                        "type": "number",
+                        "description": "-40 degC - +70degC",
+                        "units" : "celcius"
+                    },
+                    "SENS_CARBON_DIOXIDE": {
+                        "type": "number",
+                        "description": "0 - 5% (5000PPM)",
+                        "units" : "ppm"
+                    },
+                    "SENS_RELATIVE_HUMIDITY": {
+                        "type": "number",
+                        "description": "10% - 95% RH",
+                        "units" : "percentage"
+                    },
+                    "SENS_SOUND": {
+                        "type": "number",
+                        "description": "45dBA - 100 dBA",
+                        "units" : "dBA"
+                    },
+                    "SENS_PM2P5": {
+                        "type": "number",
+                        "description": "Particulate Matter PM 2.5 Range: 0 - 500 ug/m3 Resolution: +/- 5 ug/m3",
+                        "units" : "ug/m3"
+                    },
+                    "SENS_PM10": {
+                        "type": "number",
+                        "description": "Particulate Matter PM 10 Range : 0 - 1000 ug/m3 Resolution: +/- 5 ug/m3",
+                        "units" : "ug/m3"
+                    },
+                    "SENS_NITROGEN_DIOXIDE": {
+                        "type": "number",
+                        "description": "Nitrogen Dioxide (NO2) Range: 0 - 300 ppb Resolution: 10 ppb",
+                        "units" : "ppb"
+                    },
+                    "SENS_CARBON_MONOXIDE": {
+                        "type": "number",
+                        "description": "Carbon Monoxide (CO) Range: 0 - 31000 ppb Resolution: 100 ppb",
+                        "units" : "ppb"
+                    },
+                    "SENS_SULPHUR_DIOXIDE": {
+                        "type": "number",
+                        "description": "Sulphur Dioxide (SO2)* Range: 0 - 700 ppb Resolution: 10 ppb",
+                        "units" : "ppb"
+                    },
+                    "SENS_NITRIC_OXIDE": {
+                        "type": "number",
+                        "description": "Nitric Oxide (NO)* (Optional) Range: 0 - 300 ppb Resolution: 10 ppb",
+                        "units" : "ppb"
+                    },
+                    "SENS_OZONE": {
+                        "type": "number",
+                        "description": "Ozone (O3)* Range: 0 - 400 ppb Resolution: 10 ppb",
+                        "units" : "ppb"
+                    },
+                    "SENS_ULTRA_VIOLET": {
+                        "type": "number",
+                        "description": "V up to 15 UVI ",
+                        "units" : "UVI"
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "additionalProperties": false
+    }
+}
