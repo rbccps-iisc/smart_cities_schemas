@@ -1,0 +1,88 @@
+{
+  "id" : "telemetryXYZ",
+  "tags": [
+      "operations",
+      "device-health",
+      "NAS usage"
+  ],
+  "refCatalogueSchemaRelease":"0.2.1",
+  "owner": {
+      "name": "ELCITA",
+      "website": "http://www.elcita.in"
+  },
+  "refCatalogueSchema":"cdx_base_schema.json",
+  "geoLocation": {
+      "address": "electronics city",
+      "city": "Bangalore"
+  },
+  "mgmtInfo": {
+    "infoDescription" : "management related info",
+    "firmware" : "v1.0",
+    "lastUpdate" : "20/04/1029"
+  },
+  "message_schemas": {
+      "type": "object",
+      "properties": {
+         "usagemessage" : {
+           "type" : "object",
+           "schema": "http://json-schema.org/draft-07/schema#",
+           "direction": "fromThing",
+           "sharing"  : "public",
+           "priority" : "low",
+           "describes" : "number of octets transferred in AP",
+           "tags" : ["observation","users"],
+           "required" : ["samplingTime", "nasip", "inputoctets", "outputoctets"],
+           "properties" : {
+             "samplingTime" : {
+                "type" : "number",
+                "format" : "date-time",
+                "description": "Observation message time"
+             },
+             "nasip" : {
+                "type" : "string",
+                "description": "NAS IP"
+             },
+             "inputoctets" : {
+                "type" : "number",
+                "format" : "octets",
+                "description": "Input number of octets to AP"
+             },
+             "outputoctets" : {
+                "type" : "number",
+                "format" : "octets",
+                "description": "Output number of octets to AP"
+             }
+           },
+           "additionalProperties": false
+         },
+         "clientmessage" : {
+           "type" : "object",
+           "schema": "http://json-schema.org/draft-07/schema#",
+           "direction": "fromThing",
+           "sharing"  : "public",
+           "priority" : "low",
+           "describes" : "number of clients registered with AP",
+           "tags" : ["observation","users"],
+           "required" : ["samplingTime", "nasip", "clients"],
+           "properties" : {
+             "samplingTime" : {
+                 "type" : "number",
+                 "format" : "date-time",
+                 "description": "Observation message time"
+             },
+             "nasip" : {
+                 "type" : "string",
+                 "description": "NAS IP"
+             },
+             "clients" : {
+                 "type" : "number",
+                 "description": "Number of clients"
+             }
+           },
+           "additionalProperties": false
+         }
+     },
+     "additionalProperties": false
+     
+  }
+}
