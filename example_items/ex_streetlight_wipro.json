@@ -1,0 +1,76 @@
+{
+  "refCatalogueSchema": "cdx_base_staticThing.json",
+    "id": "000db5380b7a3772",
+    "tags": [
+      "streetlight",
+      "onstreet sensor",
+      "energy"
+    ],
+    "refCatalogueSchemaRelease":"0.2.1",
+    "latitude": {
+      "value": 12.85068,
+      "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+    },
+    "longitude": {
+      "value": 77.65761,
+      "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+    },
+    "owner": {
+      "name": "ELCITA",
+      "website": "http://www.iisc.ac.in"
+    },
+    "geoLocation": {
+      "address": "ELCITA, Bangalore"
+    },
+    "message_schemas": {
+      "type": "object",
+      "properties": {
+	"observation_msg": {
+	  "schema": "http://json-schema.org/draft-07/schema#",
+	  "type": "object",
+	  "describes": "Observation messages from climo air quality monitor ",
+	  "direction": "fromThing",
+	  "priority": "low",
+          "tags": ["onstreet sensors","energy"],
+	  "sharing": "public",
+	  "properties": {
+	    "deviceId": {
+	      "type": "string",
+	      "description": "Id for the streetlight unit"
+	    },
+	    "deviceName": {
+	      "type": "string",
+	      "description": "Name of the installed streetlight unit"
+	    },
+            "latitude": {
+              "type": "string",
+              "description": "Latitude value for this streetlight unit in WGS 84 reference (ontology reference: http://www.w3.org/2003/01/geo/wgs84_pos#)"
+            },
+            "longitude": {
+              "type": "string",
+              "description": "Latitude value for this streetlight unit in WGS 84 reference (ontology reference: http://www.w3.org/2003/01/geo/wgs84_pos#)"
+            },
+	    "tagId": {
+	      "type": "string",
+	      "description": "tag ID"
+	    },
+	    "onOffStatus": {
+	      "type": "string",
+	      "description": "Status of streetlight (ON/OFF)"
+            },
+	    "dimmingPercentage": {
+	      "type": "number",
+	      "description": "Current dimming percentage value",
+	      "units" : "dimensionless"
+            },
+            "updatedDateTime": {
+              "type": "string",
+              "description": "Last updated time-stamp, Format: Date(YYYY-MM-DD) Time(HH:MM:SS.MS)"
+            }
+	  },
+	  "additionalProperties": false
+	}
+      },
+      "additionalProperties": false
+    }
+}

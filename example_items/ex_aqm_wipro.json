@@ -1,0 +1,129 @@
+{
+  "refCatalogueSchema": "cdx_base_staticThing.json",
+    "id": "863789020198473",
+    "tags": [
+      "air quality",
+      "pollution",
+      "aqm",
+      "aqi"
+    ],
+    "refCatalogueSchemaRelease":"0.2.1",
+    "latitude": {
+      "value": 12.845519,
+      "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+    },
+    "longitude": {
+      "value": 77.661538,
+      "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+    },
+    "owner": {
+      "name": "ELCITA",
+      "website": "http://www.iisc.ac.in"
+    },
+    "geoLocation": {
+      "address": "ELCITA(Opp. Siemens)",
+      "city": "Bangalore"
+    },
+    "message_schemas": {
+      "type": "object",
+      "properties": {
+	"observation_msg": {
+	  "schema": "http://json-schema.org/draft-07/schema#",
+	  "type": "object",
+	  "describes": "Observation messages from air quality monitor unit",
+	  "direction": "fromThing",
+	  "priority": "low",
+	  "tags": ["air", "pollution", "SO2", "CO2", "CO", "NO", "NO2", "PM2.5", "PM10", "Humidity", "Temperature", "Ozone", "Noise", "Light"],
+	  "sharing": "public",
+	  "properties": {
+	    "deviceId": {
+	      "type": "string",
+	      "description": "Id for the aqm unit"
+	    },
+	    "name": {
+	      "type": "string",
+	      "description": "Name of the installed device"
+	    },
+            "latitude": {
+              "type": "string",
+              "description": "Latitude value for this AQM unit in WGS 84 reference (ontology reference: http://www.w3.org/2003/01/geo/wgs84_pos#)"
+            },
+            "longitude": {
+              "type": "string",
+              "description": "Latitude value for this AQM unit in WGS 84 reference (ontology reference: http://www.w3.org/2003/01/geo/wgs84_pos#)"
+            },
+	    "pm25": {
+	      "type": "string",
+	      "description": "Particulate Matter PM 2.5",
+	      "units" : "ug/m3"
+	    },
+	    "co": {
+	      "type": "string",
+	      "description": "Carbon Mono-oxide",
+	      "units" : ""
+            },
+	    "no2": {
+	      "type": "string",
+	      "description": "Nitrogen Dioxide",
+	      "units" : ""
+            },
+	    "so2": {
+	      "type": "string",
+	      "description": "Sulphur dioxide",
+	      "units" : ""
+            },
+	    "o3": {
+	      "type": "string",
+	      "description": "Ozone",
+	      "units" : ""
+            },
+	    "temp": {
+	      "type": "string",
+	      "description": "Temperature",
+	      "units" : "celcius"
+            },
+	    "humidity": {
+	      "type": "string",
+	      "description": "Relative Humidity",
+	      "units" : "percentage"
+            },
+	    "co2": {
+	      "type": "string",
+	      "description": "Carbon dioxide",
+	      "units" : ""
+            },
+	    "noise": {
+	      "type": "string",
+	      "description": "Noise levels",
+	      "units" : ""
+            },
+	    "light": {
+	      "type": "string",
+	      "description": "Light intensity",
+	      "units" : ""
+            },
+	    "pm10": {
+	      "type": "string",
+	      "description": "Particulate Matter PM 10",
+	      "units" : "ug/m3"
+	    },
+	    "value_aqi": {
+	      "type": "string",
+	      "description": "AQI index",
+	      "units" : "dimensionless"
+	    },
+	    "remark": {
+	      "type": "string",
+	      "description": "Remark"
+	    },
+            "lastUpdatedTime": {
+              "type": "string",
+              "description": "Last Updated time-stamp, Format: Date(YYYY-MM-DD) Time(HH:MM:SS.MS)"
+            }
+	  },
+	  "additionalProperties": false
+	}
+      },
+      "additionalProperties": false
+    }
+}
