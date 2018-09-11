@@ -1,0 +1,305 @@
+{
+  "refCatalogueSchema": "cdx_base_staticThing.json",
+  "id": "ssl1",
+  "tags": [
+    "onstreet",
+    "Energy",
+    "still under development!"
+  ],
+  "refCatalogueSchemaRelease": "0.2.1",
+  "latitude": {
+    "value": 13.0143335,
+    "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  },
+  "longitude": {
+    "value": 77.5678424,
+    "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  },
+  "owner": {
+    "name": "Owner Name",
+    "website": "http://owner.web.site[Optional]"
+  },
+  "provider": {
+    "name": "Provider Name",
+    "website": "http://provider.web.site[Optional]"
+  },
+  "message_schemas": {
+    "type": "object",
+    "properties": {
+      "observation": {
+        "type": "object",
+        "schema": "http://json-schema.org/draft-07/schema#",
+        "describes": "data schema for streetlight",
+        "direction": "fromThing",
+        "sharing": "public",
+        "priority": "low",
+        "tags": [
+          "temperature",
+          "observation",
+          "brightness",
+          "outputLux",
+          "voltage",
+          "current"
+        ],
+        "additionalProperties": false,
+        "required": [
+          "timestamp",
+          "messageID"
+        ],
+        "properties": {
+          "messageID": {
+            "type": "number",
+            "description": "ID of the message"
+          },
+          "messageType": {
+            "type": "string",
+            "enum": [
+              "observation"
+            ],
+            "description": "description of the message type"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "event instant"
+          },
+          "temperature": {
+            "type": "number",
+            "units": "centigrade",
+            "description": "case temperature"
+          },
+          "voltage": {
+            "type": "number",
+            "units": "Volts",
+            "description": "LED voltage"
+          },
+          "current": {
+            "type": "number",
+            "units": "Amps",
+            "description": "LED current"
+          },
+          "brightness": {
+            "unit": "percent",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Lamp brightness in percent"
+          },
+          "temperature_cpu": {
+            "type": "number",
+            "units": "centigrade",
+            "description": "TIVA internal temperature"
+          }
+        }
+      },
+      "actuation": {
+        "type": "object",
+        "schema": "http://json-schema.org/draft-07/schema#",
+        "direction": "toThing",
+        "sharing": "protected",
+        "priority": "low",
+        "describes": "control schema for streetlight",
+        "tags": [
+          "actuation",
+          "vlc",
+          "brightness"
+        ],
+        "required": [
+          "timestamp",
+          "messageID"
+        ],
+        "additionalProperties": false,
+        "anyOf": [
+          {
+            "required": [
+              "outputLux"
+            ]
+          },
+          {
+            "required": [
+              "vlcOn"
+            ]
+          },
+          {
+            "required": [
+              "vlcData"
+            ]
+          }
+        ],
+        "properties": {
+          "messageID": {
+            "type": "number",
+            "description": "ID of the message"
+          },
+          "messageType": {
+            "type": "string",
+            "enum": [
+              "observation"
+            ],
+            "description": "description of the message type"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "event instant"
+          },
+          "outputLux": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "units": "percentage",
+            "description": "set percentage lamp brightness"
+          },
+          "vlcOn": {
+            "type": "boolean",
+            "description": "set VLC on"
+          },
+          "vlcData": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100,
+            "description": "set VLC data"
+          }
+        }
+      },
+      "management": {
+        "type": "object",
+        "schema": "http://json-schema.org/draft-07/schema#",
+        "direction": "toThing",
+        "sharing": "public",
+        "priority": "low",
+        "describes": "streetlight management command schema",
+        "tags": [
+          "health",
+          "management"
+        ],
+        "required": [
+          "timestamp",
+          "messageID",
+          "request"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "messageID": {
+            "type": "number",
+            "description": "ID of the message"
+          },
+          "messageType": {
+            "type": "string",
+            "enum": [
+              "observation"
+            ],
+            "description": "description of the message type"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "event instant"
+          },
+          "request": {
+            "type": "string",
+            "description": "requested management command from App/Server"
+          }
+        }
+      },
+        "solicitation": {
+          "type": "object",
+          "schema": "http://json-schema.org/draft-07/schema#",
+          "direction": "fromThing",
+          "sharing": "public",
+          "priority": "low",
+          "describes": "streetlight solicit message schema",
+          "tags": [
+            "soliciting",
+            "solicitation",
+            "request action"
+          ],
+          "required": [
+            "timestamp",
+            "messageID",
+            "request"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "messageID": {
+              "type": "number",
+              "description": "ID of the message"
+            },
+            "messageType": {
+              "type": "string",
+              "enum": [
+                "observation"
+              ],
+              "description": "description of the message type"
+            },
+            "timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "event instant"
+            },
+            "request": {
+              "type": "string",
+              "description": "requested solicitation command to server/App"
+            }
+          }
+        },
+        "response": {
+          "type": "object",
+          "schema": "http://json-schema.org/draft-07/schema#",
+          "direction": "fromThing",
+          "sharing": "public",
+          "priority": "low",
+          "describes": "Response schema from streetlight",
+          "tags": [
+            "response"
+          ],
+          "required": [
+            "timestamp",
+            "messageID",
+            "response",
+            "responseType",
+            "requestID"
+          ],
+          "properties": {
+            "messageID": {
+              "type": "number",
+              "description": "ID of the message"
+            },
+            "messageType": {
+              "type": "string",
+              "enum": [
+                "observation"
+              ],
+              "description": "description of the message type"
+            },
+            "timestamp": {
+              "type": "string",
+              "format": "date-time",
+              "description": "event instant"
+            },
+
+            "requestID": {
+              "type": "number",
+              "description": "reference to request's messageID"
+            },
+            "response": {
+              "type": "string",
+              "minimum": 1,
+              "maximum": 64,
+              "description": "response for the request"
+            },
+            "responseType": {
+              "type": "string",
+              "enum": [
+                "management",
+                "solicitation",
+                "actuation"
+              ],
+              "description": "response type corresponding to the request"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }

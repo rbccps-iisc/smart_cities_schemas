@@ -1,0 +1,48 @@
+{
+  "refCatalogueSchema": "cdx_base_staticThing.json",
+  "id": "idXYZ",
+  "refCatalogueSchemaRelease":"0.2.1",
+  "tags": [
+    "camera",
+    "surveillance",
+    "video analytics",
+    "images"
+  ],
+  "latitude": {
+    "value": 12.845412,
+    "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  },
+  "longitude": {
+    "value": 77.664746,
+    "ontologyRef": "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  },
+  "owner": {
+    "name": "ELCITA",
+    "website": "http://www.elcia.in"
+  },
+  "geoLocation": {
+    "name": "SBI_Cam"
+  },
+  "ipcameraInfo": {
+      "modelpartNum": "Prysm-5MP(ByDesign)",
+      "dataSheetURL": "",
+      "hasAudioCapability": false,
+      "hasONVIFCapability": true,
+      "cameraType": "fixed",
+      "cameraHousing": "bullet"
+  },
+  "liveStreamAccess": {
+    "primaryStream": [
+         {"protocol": "rtmp",
+          "link": "rtmp://{serverIP}:{serverPort}/live1/{id}_0?user={USER}&pass={PASSWORD}"},
+         {"protocol": "hls",
+          "link": "http://{USER}:{PASSWORD}@{serverIP}:{serverPort}/hls/{id}_0.m3u8"}
+    ],
+    "secondaryStream": [
+         {"protocol": "rtmp",
+          "link": "rtmp://{serverIP}:{serverPort}/live1/{id}_1?user={USER}&pass={PASSWORD}"},
+         {"protocol": "hls",
+          "link": "http://{USER}:{PASSWORD}@{serverIP}:{serverPort}/hls/{id}_1.m3u8"}
+    ]
+  }
+}

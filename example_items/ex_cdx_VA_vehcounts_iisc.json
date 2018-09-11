@@ -1,0 +1,131 @@
+{ 
+  "refCatalogueSchema": "cdx_base_schema.json",
+  "id": "rbccps_analytics_vehicle_countsXYZ",
+  "describes": "Detects vehicle counts for various on-street IP Cameras. For a given time duration, it finds the counts per vehicle class for different directions(if applicable)",
+  "tags": [
+    "video analytics",
+    "vehicle counts",
+    "vehicle speeds",
+    "virtual sensor"
+  ],
+  "refCatalogueSchemaRelease":"0.2.1",
+  "isVirtualSensor": true,
+  "refResourceStreams": {
+     "refResourceStreamIds": ["elcita_ipcam_42_174","elcita_ipcam_43_173","elcita_ipcam_38_178","elcita_ipcam_39_177","elcita_ipcam_14_202","elcita_ipcam_15_201","elcita_ipcam_12_204","elcita_ipcam_13_203","elcita_ipcam_19_197","elcita_ipcam_18_198","elcita_ipcam_44_172","elcita_ipcam_45_171","elcita_ipcam_23_193","elcita_ipcam_22_194","elcita_ipcam_21_195","elcita_ipcam_20_196","elcita_ipcam_25_191","elcita_ipcam_24_192","elcita_ipcam_36_180","elcita_ipcam_37_179","elcita_ipcam_34_182","elcita_ipcam_35_181","elcita_ipcam_32_184","elcita_ipcam_33_183","elcita_ipcam_30_186","elcita_ipcam_31_185","elcita_ipcam_41_175","elcita_ipcam_40_176","elcita_ipcam_29_187","elcita_ipcam_28_188","elcita_ipcam_27_189","elcita_ipcam_26_190","elcita_ipcam_17_199","elcita_ipcam_16_200","elcita_ipcam_10_99","elcita_ipcam_10_105","elcita_ipcam_10_101","elcita_ipcam_10_102","elcita_ipcam_10_103","elcita_ipcam_10_202","elcita_ipcam_10_203","elcita_ipcam_10_107","elcita_ipcam_10_112","elcita_ipcam_10_253"],
+     "refResourceStreamGroupId": "elcita_ipcam_*",
+     "description": "All ELCITA cameras"
+  },
+  "owner": {
+    "name": "IISC",
+    "website": "http://www.iisc.ac.in"
+  },
+  "message_schemas": {
+     "type": "object",
+     "properties": {
+         "vehicle_counts": {
+             "schema": "http://json-schema.org/draft-07/schema#",
+             "type": "object",
+             "describes": "Message delivering derived vehicle counts",
+             "direction": "fromThing",
+             "priority": "low",
+             "tags": [ "video analytics", "vehicle counts", "vehicle speeds", "virtual sensor" ],
+             "sharing": "public",
+             "required": ["streamId"],
+             "properties": {
+                  "streamId": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems":true,
+                    "description": "Stream Ids / Camera Ids from which these counts were derived",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "startTime": {
+	            "type": "number",
+	            "description": "Start time ( in EPOCH, milli-seconds) for the corresponding time segment"
+                  },
+                  "endTime": {
+	            "type": "number",
+	            "description": "End time ( in EPOCH, milli-seconds) for the corresponding time segment"
+                  },
+                  "direction": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems":true,
+                    "description": "Directions for counts (For example, counts on bi-directional roads)",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "num_car": {
+                    "type": "array",
+                    "minItems": 1,
+                    "description": "Number of cars",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "num_bus": {
+                    "type": "array",
+                    "minItems": 1,
+                    "description": "Number of cars",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "num_truck": {
+                    "type": "array",
+                    "minItems": 1,
+                    "description": "Number of cars",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "num_three_wheeler": {
+                    "type": "array",
+                    "minItems": 1,
+                    "description": "Number of cars",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "num_two_wheeler": {
+                    "type": "array",
+                    "minItems": 1,
+                    "description": "Number of cars",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "num_lcv": {
+                    "type": "array",
+                    "minItems": 1,
+                    "description": "Number of cars",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "num_bicycle": {
+                    "type": "array",
+                    "minItems": 1,
+                    "description": "Number of cars",
+                    "items": {
+                      "type": "number"
+                    }
+                  },
+                  "num_people": {
+                    "type": "array",
+                    "minItems": 1,
+                    "description": "Number of cars",
+                    "items": {
+                      "type": "number"
+                    }
+                  }
+               },
+            "additionalProperties": false
+           }
+      },
+      "additionalProperties": false
+  }
+}
