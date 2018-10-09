@@ -48,6 +48,8 @@
 	    "SENS_LIGHT": {
 	      "type": "number",
 	      "description": "Up to 188000",
+              "minimum": 0,
+              "maximum": 188000, 
 	      "units" : "Lux"
 	    },
 	    "SENS_AIR_PRESSURE": {
@@ -58,61 +60,85 @@
 	    "SENS_TEMPERATURE": {
 	      "type": "number",
 	      "description": "-40 degC - +70degC",
+              "minimum": -40,
+              "maximum": 70, 
 	      "units" : "celcius"
 	    },
 	    "SENS_CARBON_DIOXIDE": {
 	      "type": "number",
 	      "description": "0 - 5% (5000PPM)",
+              "minimum": 0,
+              "maximum": 5000, 
 	      "units" : "ppm"
 	    },
 	    "SENS_RELATIVE_HUMIDITY": {
 	      "type": "number",
 	      "description": "10% - 95% RH",
+              "minimum": 10,
+              "maximum": 95, 
 	      "units" : "percentage"
 	    },
 	    "SENS_SOUND": {
 	      "type": "number",
 	      "description": "45dBA - 100 dBA",
+              "minimum": 45,
+              "maximum": 100, 
 	      "units" : "dBA"
 	    },
 	    "SENS_PM2P5": {
 	      "type": "number",
 	      "description": "Particulate Matter PM 2.5 Range: 0 - 500 ug/m3 Resolution: +/- 5 ug/m3",
+              "minimum": 0,
+              "maximum": 500, 
 	      "units" : "ug/m3"
 	    },
 	    "SENS_PM10": {
 	      "type": "number",
 	      "description": "Particulate Matter PM 10 Range : 0 - 1000 ug/m3 Resolution: +/- 5 ug/m3",
+              "minimum": 0,
+              "maximum": 1000, 
 	      "units" : "ug/m3"
 	    },
 	    "SENS_NITROGEN_DIOXIDE": {
 	      "type": "number",
 	      "description": "Nitrogen Dioxide (NO2) Range: 0 - 300 ppb Resolution: 10 ppb",
+              "minimum": 0,
+              "maximum": 300, 
 	      "units" : "ppb"
 	    },
 	    "SENS_CARBON_MONOXIDE": {
 	      "type": "number",
 	      "description": "Carbon Monoxide (CO) Range: 0 - 31000 ppb Resolution: 100 ppb",
+              "minimum": 0,
+              "maximum": 31000, 
 	      "units" : "ppb"
 	    },
 	    "SENS_SULPHUR_DIOXIDE": {
 	      "type": "number",
 	      "description": "Sulphur Dioxide (SO2)* Range: 0 - 700 ppb Resolution: 10 ppb",
+              "minimum": 0,
+              "maximum": 700, 
 	      "units" : "ppb"
 	    },
 	    "SENS_NITRIC_OXIDE": {
 	      "type": "number",
 	      "description": "Nitric Oxide (NO)* (Optional) Range: 0 - 300 ppb Resolution: 10 ppb",
+              "minimum": 0,
+              "maximum": 300, 
 	      "units" : "ppb"
 	    },
 	    "SENS_OZONE": {
 	      "type": "number",
 	      "description": "Ozone (O3)* Range: 0 - 400 ppb Resolution: 10 ppb",
+              "minimum": 0,
+              "maximum": 400, 
 	      "units" : "ppb"
 	    },
 	    "SENS_ULTRA_VIOLET": {
 	      "type": "number",
 	      "description": "V up to 15 UVI ",
+              "minimum": 0,
+              "maximum": 15, 
 	      "units" : "UVI"
 	    },
 	    "AQI_SENS_PM2P5": {
