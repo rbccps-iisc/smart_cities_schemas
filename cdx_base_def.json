@@ -223,9 +223,7 @@
       "type": "object",
       "properties": {
         "type": {
-          "type": [
-            "string"
-          ]
+          "type": [ "string", "array" ]
         },
         "properties": {
           "type": "object",
@@ -245,52 +243,51 @@
       ]
     },
     "messageSchema": {
-       "type": "object",
-       "describes": "Schema of a message from the information source",
-       "properties": {
-         "type": {
-           "type": "string",
-           "enum": ["object"]
-         },
-         "tags": {
-           "$ref": "#/definitions/tagsSchema"
-         },
-         "description": {
-           "type": "string"
-         },
-         "priority": {
+        "type": "object",
+        "describes": "Schema of a message from the information source",
+        "required" : ["type", "direction", "sharing", "priority", "describes", "properties"],
+        "properties": {
+          "type": {
             "type": "string",
-            "enum":["low", "medium", "high"]
-         },
-         "sharing": {
-            "$ref":"#/definitions/sharingTypeSchema"
-         },
-         "direction" : {
-            "type": "string",
-            "enum" : ["fromThing", "toThing"]
-         },
-         "required" : {
-	   "type" : "array",
-	   "minItems" : 1,
-	   "uniqueItems":true,
-	   "items" : {"type" : "string"}
+            "enum": ["object"]
           },
-         "properties": {
-           "type": "object",
-           "patternProperties": {
-             "[a-zA-Z0-9]+$": {
-               "$ref": "#/definitions/resourceDataSchema"
-             },
-           "additionalProperties": {
-               "type": "boolean"
-            }  
-           }
-         },
-         "additionalProperties": {
-            "type": "boolean"
-         }
-       },
-       "required" : ["type", "direction", "sharing", "priority", "description", "required", "properties"]
+          "schema" : {
+          	  "type" : "string",
+          	  "format" : "uri-reference"
+          },
+          "tags": {
+            "$ref": "cdx_base_def.json#/definitions/tagsSchema"
+          },
+          "describes": {
+            "type": "string"
+          },
+          "priority": {
+             "type": "string",
+             "enum":["low", "medium", "high"]
+          },
+          "sharing": {
+             "$ref":"cdx_base_def.json#/definitions/sharingTypeSchema"
+          },
+          "direction" : {
+             "type": "string",
+             "enum" : ["fromThing", "toThing"]
+          },
+          "required" : {
+            "type" : "array",
+            "minItems" : 0,
+            "uniqueItems":true,
+            "items" : {"type" : "string"}
+           },
+          "properties": {
+            "type": "object",
+            "patternProperties": {
+              "[a-zA-Z0-9]+$": {
+                "$ref": "cdx_base_def.json#/definitions/resourceDataSchema"
+              }
+            }
+          }
+        }
+
     },
     "protoFileSchemaField": {
       "describes": "Will be used to generate a proto file. Currently proto-json fields mapping is the one described in the scripts defined with conversion scripts used by PIQI language (piqi.org)",

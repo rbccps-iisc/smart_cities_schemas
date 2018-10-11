@@ -1,0 +1,70 @@
+{
+  "id" : "mobileyeXYZ",
+  "tags": [
+      "traffic safety",
+      "xxxx"
+  ],
+  "refCatalogueSchemaRelease":"0.2.1",
+  "owner": {
+      "name": "ELCITA",
+      "website": "http://www.elcita.in"
+  },
+  "refCatalogueSchema":"cdx_base_schema.json",
+  "message_schemas": {
+     "type": "object",
+     "schema": "http://json-schema.org/draft-07/schema#",
+     "direction": "fromThing",
+     "sharing"  : "public",
+     "priority" : "low",
+     "describes" : "xxxx",
+     "tags" : ["xxxx"],
+     "required" : ["deviceId", "listMobileEyeData", "vehicleDeviceMappingDTOList"],
+     "properties" : {
+       "deviceId" : {
+          "type" : "string",
+          "description": "Id of the device sending this message"
+       },
+       "listMobileEyeData" : {
+          "type" : "array",
+          "description": "xxxx",
+          "minItems" : 0,
+          "items" : {
+            "type" : "object",
+            "description": "xxxx",
+            "properties": {
+               "latitude": {
+                 "type": "number",
+                 "description": "Latitude value for xxxx in WGS 84 reference (ontology reference: http://www.w3.org/2003/01/geo/wgs84_pos#)"
+               },
+               "longitude": {
+                 "type": "number",
+                 "description": "Longitude value for xxxx in WGS 84 reference (ontology reference: http://www.w3.org/2003/01/geo/wgs84_pos#)"
+               },
+               "sateliteTime": {
+                 "type": "number",
+                 "description": "EPOCH Time for xxxx "
+               },
+               "speed": {
+                 "type": "number",
+                 "description": "Speed of the vehicle",
+                 "minimum": 0,
+                 "maximum": 200, 
+                 "units" : "kmph"
+               },
+               "alarmType" : {
+                 "type": "string",
+                 "enum" : ["HMW","LDWR", "FCW", "UFCW", "Overspeed"]
+               }
+            },
+            "additionalProperties": false,
+            "required": ["latitude","longitude","sateliteTime","speed","alarmType" ]
+           }
+       },
+       "vehicleDeviceMappingDTOList" : {
+          "type" : ["string","null"],
+          "description": "xxxxx"
+       }
+     },
+     "additionalProperties": false
+  }
+}

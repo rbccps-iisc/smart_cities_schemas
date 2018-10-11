@@ -24,7 +24,7 @@ with open(data_path) as data_object:
     data = json.load(data_object)
 
 schema_file= os.path.join(schema_path, data['refCatalogueSchema'])
-print schema_file
+#print schema_file
 
 with open(schema_file) as file_object:
     schema = json.load(file_object)
@@ -36,4 +36,7 @@ resolver = jsonschema.RefResolver('file://' + schema_path, None)
 
 # This will find the correct validator and instantiate it using the resolver.
 # Requires that your schema a line like this: "$schema": "http://json-schema.org/draft-04/schema#"
+#try:
 jsonschema.validate(data, schema, resolver=resolver)
+#except:
+# print "Error Occured"
