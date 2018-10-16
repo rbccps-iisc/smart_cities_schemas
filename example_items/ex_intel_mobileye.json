@@ -2,7 +2,7 @@
   "id" : "mobileyeXYZ",
   "tags": [
       "traffic safety",
-      "xxxx"
+      "mobilEye"
   ],
   "refCatalogueSchemaRelease":"0.2.2",
   "owner": {
@@ -16,8 +16,8 @@
      "direction": "fromThing",
      "sharing"  : "public",
      "priority" : "low",
-     "describes" : "xxxx",
-     "tags" : ["xxxx"],
+     "describes" : "MobilEye alerts",
+    "tags" : ["mobilEye"],
      "required" : ["deviceId", "listMobileEyeData", "vehicleDeviceMappingDTOList"],
      "properties" : {
        "deviceId" : {
@@ -26,29 +26,29 @@
        },
        "listMobileEyeData" : {
           "type" : "array",
-          "description": "xxxx",
+          "description": " MobilEye alerts ",
           "minItems" : 0,
           "items" : {
             "type" : "object",
-            "description": "xxxx",
+            "description": " MobilEye alerts ",
             "properties": {
                "latitude": {
                  "type": "number",
-                 "description": "Latitude value for xxxx in WGS 84 reference (ontology reference: http://www.w3.org/2003/01/geo/wgs84_pos#)"
+                 "description": "Latitude value for Mobile Eye Alert in WGS 84 reference (ontology reference: http://www.w3.org/2003/01/geo/wgs84_pos#)"
                },
                "longitude": {
                  "type": "number",
-                 "description": "Longitude value for xxxx in WGS 84 reference (ontology reference: http://www.w3.org/2003/01/geo/wgs84_pos#)"
+                 "description": "Longitude value for Mobile Eye Alert in WGS 84 reference (ontology reference: http://www.w3.org/2003/01/geo/wgs84_pos#)"
                },
                "sateliteTime": {
                  "type": "number",
-                 "description": "EPOCH Time for xxxx "
+                 "description": "EPOCH Time for Mobile Eye Alert "
                },
                "speed": {
                  "type": "number",
                  "description": "Speed of the vehicle",
                  "minimum": 0,
-                 "maximum": 200, 
+                 "maximum": 200,
                  "units" : "kmph"
                },
                "alarmType" : {
@@ -62,7 +62,7 @@
        },
        "vehicleDeviceMappingDTOList" : {
           "type" : ["string","null"],
-          "description": "xxxxx"
+          "description": "class"
        }
      },
      "additionalProperties": false

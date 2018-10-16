@@ -60,22 +60,22 @@
 	    "co": {
 	      "type": "string",
 	      "description": "Carbon Mono-oxide",
-	      "units" : ""
+	      "units" : "mg/m3"
             },
 	    "no2": {
 	      "type": "string",
 	      "description": "Nitrogen Dioxide",
-	      "units" : ""
+	      "units" : "ug/m3"
             },
 	    "so2": {
 	      "type": "string",
 	      "description": "Sulphur dioxide",
-	      "units" : ""
+	      "units" : "ug/m3"
             },
 	    "o3": {
 	      "type": "string",
 	      "description": "Ozone",
-	      "units" : ""
+	      "units" : "ug/m3"
             },
 	    "temp": {
 	      "type": "string",
@@ -90,17 +90,17 @@
 	    "co2": {
 	      "type": "string",
 	      "description": "Carbon dioxide",
-	      "units" : ""
+	      "units" : "ppm"
             },
 	    "noise": {
 	      "type": "string",
 	      "description": "Noise levels",
-	      "units" : ""
+	      "units" : "dBA"
             },
 	    "light": {
 	      "type": "string",
 	      "description": "Light intensity",
-	      "units" : ""
+	      "units" : "lux"
             },
 	    "pm10": {
 	      "type": "string",
