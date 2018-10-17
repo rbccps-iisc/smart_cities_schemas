@@ -1,0 +1,512 @@
+{
+    "id" : "operationalTelemetryXYZ",
+    "tags": [
+        "operations",
+        "device-health",
+        "system",
+        "network",
+        "applications"
+    ],
+    "refCatalogueSchemaRelease":"0.2.1",
+    "owner": {
+        "name": "ELCITA",
+        "website": "http://www.elcita.in"
+    },
+    "refCatalogueSchema":"cdx_base_schema.json",
+    "geoLocation": {
+        "address": "electronics city",
+        "city": "Bangalore"
+    },
+    "mgmtInfo": {
+      "infoDescription" : "management related info",
+      "firmware" : "v1.0",
+      "lastUpdate" : "20/04/1029"
+    },
+    "message_schemas": {
+        "type": "object",
+        "properties": {
+            "systemMetrics": {
+                "type": "object",
+                "schema": "http://json-schema.org/draft-07/schema#",
+                "direction": "fromThing",
+                "sharing": "public",
+                "priority": "low",
+                "describes": "system performance metrics of the device",
+                "tags": ["system", "cpu", "memory", "disk"],
+                "required": ["deviceid", "samplingTime"],
+                "properties": {
+                    "deviceid": {
+                        "type" : "string",
+                        "description": "ID of device sending telemetry"
+                    },
+                    "samplingTime": {
+                        "type" : "number",
+                        "format" : "date-time",
+                        "description": "Observation record time"
+                    },
+                    "cpuMetrics": {
+                        "type": "object",
+                        "description": "CPU Metrics",
+                        "properties": {
+                            "usageSystem": {
+                                "type": "number",
+                                "description": "Describes the percentage of CPU used by the system",
+                                "units": "percent"
+                            },
+                            "usageUser": {
+                                "type": "number",
+                                "description": "Describes the percentage of CPU used by the user(s)",
+                                "units": "percent"
+                            },
+                            "usageNice": {
+                                "type": "number",
+                                "description": "Describes the percentage of CPU used by normal priority processes",
+                                "units": "percent"
+                            },
+                            "usageGuest": {
+                                "type": "number",
+                                "description": "Describes the percentage of guest usage",
+                                "units": "percent"
+                            },
+                            "usageGuestNice": {
+                                "type": "number",
+                                "description": "Describes the normal priority guest usage",
+                                "units": "percent"
+                            },
+                            "usageSteal": {
+                                "type": "number",
+                                "description": "Describes the cycles stolen by the hypervisor",
+                                "units": "percent"
+                            },
+                            "usageIRQ": {
+                                "type": "number",
+                                "description": "Describes the percentage used for interrupts",
+                                "units": "percent"
+                            },
+                            "usageSoftIRQ": {
+                                "type": "number",
+                                "description": "Describes the percentage used for soft interrupts",
+                                "units": "percent"
+                            },
+                            "usageIOWait": {
+                                "type": "number",
+                                "description": "Describes the percentage used for soft interrupts",
+                                "units": "percent"
+                            },
+                            "idle": {
+                                "type": "number",
+                                "description": "Describes the percentage of CPU idle",
+                                "units": "percent"
+                            },
+                            "cpu": {
+                                "type": "string",
+                                "description": "The CPU over which measurements were recorded"
+                            }
+                        }
+                    },
+                    "memMetrics": {
+                        "type": "object",
+                        "description": "Memory Metrics",
+                        "properties": {
+                            "active": {
+                                "type": "number",
+                                "description": "Describes the active memory in the system",
+                                "units": "bytes"
+                            },
+                            "used": {
+                                "type": "number",
+                                "description": "Describes the used memory in the system",
+                                "units": "bytes"
+                            },
+                            "available": {
+                                "type": "number",
+                                "description": "Describes the available memory in the system",
+                                "units": "bytes"
+                            },
+                            "buffered": {
+                                "type": "number",
+                                "description": "Describes the buffered memory in the system",
+                                "units": "bytes"
+                            },
+                            "cached": {
+                                "type": "number",
+                                "description": "Describes the cached memory in the system",
+                                "units": "bytes"
+                            },
+                            "free": {
+                                "type": "number",
+                                "description": "Describes the free memory in the system",
+                                "units": "bytes"
+                            },
+                            "inactive": {
+                                "type": "number",
+                                "description": "Describes the inactive memory in the system",
+                                "units": "bytes"
+                            },
+                            "slab": {
+                                "type": "number",
+                                "description": "Describes the slab memory in the system",
+                                "units": "bytes"
+                            },
+                            "total": {
+                                "type": "number",
+                                "description": "Describes the total memory in the system",
+                                "units": "bytes"
+                            },
+                            "usedPercent": {
+                                "type": "number",
+                                "description": "Describes the percentage of memory used",
+                                "units": "percent"
+                            },
+                            "availablePercent": {
+                                "type": "number",
+                                "description": "Describes the percentage of memory available",
+                                "units": "percent"
+                            },
+                            "wired": {
+                                "type": "number",
+                                "description": "Describes the unpagable memory in the system",
+                                "units": "bytes"
+                            }
+                        }
+                    },
+                    "diskMetrics": {
+                        "type": "object",
+                        "description": "Disk Metrics",
+                        "properties": {
+                            "fstype": {
+                                "type": "string",
+                                "description": "Describes the filesystem type of the system"
+                            },
+                            "device": {
+                                "type": "string",
+                                "description": "Describes the disk name"
+                            },
+                            "mode": {
+                                "type": "string",
+                                "description": "Describes the mode at which the disk is mounted"
+                            },
+                            "path": {
+                                "type": "string",
+                                "description": "Describes the mount path of disk"
+                            },
+                            "free": {
+                                "type": "number",
+                                "description": "Describes the free space in the disk",
+                                "units": "bytes"
+                            },
+                            "inodesFree": {
+                                "type": "number",
+                                "description": "Describes the number of free inodes"
+                            },
+                            "inodesTotal": {
+                                "type": "number",
+                                "description": "Describes the total number of inodes"
+                            },
+                            "inodesUsed": {
+                                "type": "number",
+                                "description": "Describes the number of used inodes",
+                                "units": "bytes"
+                            },
+                            "total": {
+                                "type": "number",
+                                "description": "Describes the total space in the disk",
+                                "units": "bytes"
+                            },
+                            "used": {
+                                "type": "number",
+                                "description": "Describes the used space in the disk",
+                                "units": "bytes"
+                            },
+                            "usedPercent": {
+                                "type": "number",
+                                "description": "Describes the percentage of disk used",
+                                "units": "percent"
+                            }
+                        }
+                    },
+                    "miscMetrics": {
+                        "type": "object",
+                        "description": "Metrics generated by miscellaneous data",
+                        "properties": {
+                            "kernelLogChanges" : {
+                                "type": "number",
+                                "description": "Describes the changes in kernel logs",
+                                "units": "lines"
+                            },
+                            "syslogChanges" : {
+                                "type": "number",
+                                "description": "Describes the changes in syslog",
+                                "units": "lines"
+                            },
+                            "systemResets": {
+                                "type": "number",
+                                "description": "Number of system resets"
+                            }
+
+                        }
+                    }
+                }
+            },
+            "networkMetrics": {
+                "type": "object",
+                "schema": "http://json-schema.org/draft-07/schema#",
+                "direction": "fromThing",
+                "sharing": "public",
+                "priority": "low",
+                "describes": "network performance metrics of the device",
+                "tags": ["network", "wireless", "link", "data"],
+                "required": ["deviceid", "samplingTime"],
+                "properties": {
+                    "deviceid": {
+                        "type" : "string",
+                        "description": "ID of device sending telemetry"
+                    },
+                    "samplingTime": {
+                        "type" : "number",
+                        "format" : "date-time",
+                        "description": "Observation record time"
+                    },
+                    "iface": {
+                        "type" : "string",
+                        "description": "Interface on which observations are recorded"
+                    },
+                    "bytesSent": {
+                        "type": "number",
+                        "description": "Number of bytes sent",
+                        "units": "bytes"
+                    },
+                    "bytesRecv": {
+                        "type": "number",
+                        "description": "Number of bytes received",
+                        "units": "bytes"
+                    },
+                    "inErrs": {
+                        "type": "number",
+                        "description": "Number of inbound errors"
+                    },
+                    "outErrs": {
+                        "type": "number",
+                        "description": "Number of outbound errors"
+                    },
+                    "inDrops": {
+                        "type": "number",
+                        "description": "Number of inbound drops"
+                    },
+                    "outDrops": {
+                        "type": "number",
+                        "description": "Number of outbound drops"
+                    },
+                    "DNSdomain": {
+                        "type": "string",
+                        "description": "DNS Domain"
+                    },
+                    "DNSserver": {
+                        "type": "string",
+                        "description": "DNS server"
+                    },
+                    "DNSResult": {
+                        "type": "string",
+                        "description": "DNS Query result"
+                    },
+                    "DNSRecordType": {
+                        "type": "string",
+                        "description": "Record type of DNS"
+                    },
+                    "DNSResultCode": {
+                        "type": "number",
+                        "description": "Result code of DNS Query"
+                    },
+                    "DNSQueryTime": {
+                        "type": "number",
+                        "description": "Time taken for DNS Query",
+                        "units": "ms"
+                    },
+                    "pingServer": {
+                        "type": "string",
+                        "description": "Server address for ping"
+                    },
+                    "pingResult": {
+                        "type": "string",
+                        "description": "Result of ping query"
+                    },
+                    "pingProtocol": {
+                        "type": "string",
+                        "description": "Protocol of ping query"
+                    },
+                    "pingPort": {
+                        "type": "number",
+                        "description": "Port used for ping query"
+                    },
+                    "pingResponseTime": {
+                        "type": "number",
+                        "description": "Response time for ping query",
+                        "units": "ms"
+                    },
+                    "pingResultCode": {
+                        "type": "number",
+                        "description": "Result code for ping query"
+                    },
+                    "pingResultType": {
+                        "type": "string",
+                        "description": "Result type of ping query"
+                    },
+                    "linkFlaps": {
+                        "type": "number",
+                        "description": "Number of link flaps"
+                    },
+                    "rssi": {
+                        "type": "number",
+                        "description": "RSSI of wireless network",
+                        "units": "dBm"
+                    },
+                    "snr": {
+                        "type": "number",
+                        "description": "SNR of wireless network",
+                        "units": "dBm"
+                    }
+                }
+            },
+            "applicationMetrics": {
+                "type": "object",
+                "schema": "http://json-schema.org/draft-07/schema#",
+                "direction": "fromThing",
+                "sharing": "public",
+                "priority": "low",
+                "describes": "application metrics of the device",
+                "tags": ["applications", "docker", "container"],
+                "required": ["deviceid", "samplingTime"],
+                "properties": {
+                    "deviceid": {
+                        "type" : "string",
+                        "description": "ID of device sending telemetry"
+                    },
+                    "samplingTime": {
+                        "type" : "number",
+                        "format" : "date-time",
+                        "description": "Observation record time"
+                    },
+                    "numContainers": {
+                        "type": "number",
+                        "description": "Number of containers"
+                    },
+                    "containerImage" : {
+                        "type": "string",
+                        "description": "Docker Image"
+                    },
+                    "containerName" : {
+                        "type": "string",
+                        "description": "Docker Container Name"
+                    },
+                    "containerStatus" : {
+                        "type": "string",
+                        "description": "Status of container"
+                    },
+                    "containerVersiob" : {
+                        "type": "string",
+                        "description": "Docker Image version"
+                    },
+                    "appCpuMetrics": {
+                        "type": "object",
+                        "description": "CPU Metrics of application",
+                        "properties": {
+                            "usageKernelMode": {
+                                "type": "number",
+                                "description": "Describes the CPU used by the application in kernel mode",
+                                "units": "cycles"
+                            },
+                            "usageUserMode": {
+                                "type": "number",
+                                "description": "Describes the CPU used by the application in user mode",
+                                "units": "cycles"
+                            },
+                            "usagePercent": {
+                                "type": "number",
+                                "description": "Describes the percentage of CPU usage by the application",
+                                "units": "percent"
+                            },
+                            "usageTotal": {
+                                "type": "number",
+                                "description": "Describes total cycles of the CPU used by the application",
+                                "units": "cycles"
+                            },
+                            "throttledTime": {
+                                "type": "number",
+                                "description": "Describes the CPU time throttled",
+                                "units": "seconds"
+                            },
+                            "cpu": {
+                                "type": "string",
+                                "description": "The CPU over which measurements were recorded"
+                            }
+                        }
+                    },
+                    "appMemMetrics": {
+                        "type": "object",
+                        "description": "Application Memory Metrics",
+                        "properties": {
+                            "active": {
+                                "type": "number",
+                                "description": "Describes the active memory in the application",
+                                "units": "bytes"
+                            },
+                            "usage": {
+                                "type": "number",
+                                "description": "Describes the used memory in the application",
+                                "units": "bytes"
+                            },
+                            "available": {
+                                "type": "number",
+                                "description": "Describes the available memory in the application",
+                                "units": "bytes"
+                            },
+                            "limit": {
+                                "type": "number",
+                                "description": "Describes the memory limit in the application",
+                                "units": "bytes"
+                            },
+                            "maxUsage": {
+                                "type": "number",
+                                "description": "Describes the maximum memory usage in the application",
+                                "units": "bytes"
+                            },
+                            "pageFaults": {
+                                "type": "number",
+                                "description": "Describes the number of page faults in the application"
+                            },
+                            "usedPercent": {
+                                "type": "number",
+                                "description": "Describes the percentage of memory used",
+                                "units": "percent"
+                            }
+                        }
+                    },
+                    "miscMetrics": {
+                        "type": "object",
+                        "description": "Miscellaneous application metrics",
+                        "properties": {
+                            "loggedErrors": {
+                                "type": "number",
+                                "description": "Describes the number of logged errors"
+                            },
+                            "crashes": {
+                                "type": "number",
+                                "description": "Describes the number of container crashes"
+                            },
+                            "resets": {
+                                "type": "number",
+                                "description": "Describes the number of application resets"
+                            },
+                            "apiRespTime": {
+                                "type": "number",
+                                "description": "Response time of APIs to container",
+                                "units": "ms"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "additionalProperties": false
+    }
+}
