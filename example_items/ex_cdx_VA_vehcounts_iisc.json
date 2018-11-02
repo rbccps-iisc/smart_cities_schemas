@@ -43,11 +43,11 @@
                   },
                   "startTime": {
 	            "type": "number",
-	            "description": "Start time ( in EPOCH, milli-seconds) for the corresponding time segment"
+	            "description": "Start time in seconds (Format: UNIX/POSIX Epoch https://en.wikipedia.org/wiki/Unix_time) for the corresponding time segment. Precision is +/- 1 Micro-seconds."
                   },
                   "endTime": {
 	            "type": "number",
-	            "description": "End time ( in EPOCH, milli-seconds) for the corresponding time segment"
+	            "description": "End time in seconds (Format: UNIX/POSIX Epoch https://en.wikipedia.org/wiki/Unix_time) for the corresponding time segment. Precision is +/- 1 Micro-seconds."
                   },
                   "direction": {
                     "type": "array",
